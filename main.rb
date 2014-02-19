@@ -1,12 +1,18 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'slim'
-
+require 'sass'
 # set :public_folder, 'assets'
 # set :views, 'templates'
 
+# This is a simple route handler that uses the scss to 
+# process the styles view when
+# the styles.css file is requested
+get('/styles.css'){ scss :styles }
+
 # the erb method is used with the argument
-# :home  (name of view needs to eb a symbol)to indicate that erb should be used to render the view called “home.”
+# :home  (name of view needs to eb a symbol)to indicate that 
+# erb should be used to render the view called “home.”
 get '/' do
 	@title = "Home of Sinatra"
 	slim :home 
