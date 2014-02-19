@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'slim'
 
 # set :public_folder, 'assets'
 # set :views, 'templates'
@@ -8,21 +9,21 @@ require 'sinatra/reloader' if development?
 # :home  (name of view needs to eb a symbol)to indicate that erb should be used to render the view called “home.”
 get '/' do
 	@title = "Home of Sinatra"
-	erb :home 
+	slim :home 
 end
 
 get '/about' do
 	@title = "All About This Website"
-	erb :about
+	slim :about
 end
 
 get '/contact' do
 	@title = "Contact Informations"
-	erb :contact
+	slim :contact
 end
 
 not_found do
-	erb :not_found
+	slim :not_found
 end
 
 # __END__
