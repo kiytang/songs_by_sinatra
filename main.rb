@@ -5,6 +5,8 @@ require 'sass'
 # set :public_folder, 'assets'
 # set :views, 'templates'
 
+require './song'
+
 # This is a simple route handler that uses the scss to 
 # process the styles view when
 # the styles.css file is requested
