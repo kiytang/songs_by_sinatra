@@ -17,9 +17,9 @@ class Song
 	def released_on=date
 		super Date.strptime(date, '%m/%d/%Y')
 	end
-end
 
-DataMapper.finalize 
+	DataMapper.finalize
+end 
 # this route handler creates an empty song object and then displays the 
 # new_song view
 get '/songs/new' do
@@ -46,4 +46,9 @@ put '/songs/:id' do
 	song = Song.get(params[:id])
 	song.update(params[:song])
 	redirect to ("/songs/#{song.id}")
+end
+
+delete '/songs/:id' do
+	Song.get(params[:id]).destroy
+	redirect to('/songs')
 end
