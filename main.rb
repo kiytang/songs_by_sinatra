@@ -3,8 +3,8 @@ require 'sinatra'
 # require 'sinatra/reloader' if development?
 require 'slim'
 require 'sass'
-set :public_folder, 'assets'
-set :views, 'templates'
+# set :public_folder, 'assets'
+# set :views, 'templates'
 
 require './song'
 
