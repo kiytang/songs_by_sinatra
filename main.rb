@@ -1,11 +1,15 @@
 require 'sinatra'
-require 'sinatra/reloader' if development?
+# require 'sinatra/reloader' if development?
 require 'slim'
 require 'sass'
 # set :public_folder, 'assets'
 # set :views, 'templates'
 
 require './song'
+
+configure do
+	enable :sessions
+end
 
 # This is a simple route handler that uses the scss to 
 # process the styles view when
@@ -32,6 +36,14 @@ end
 
 not_found do
 	slim :not_found
+end
+
+get '/set/:name' do
+	session[:name] = params[:name]
+end
+
+get '/get/hello' do
+	"Hello #{session[:name]}"
 end
 
 # __END__
