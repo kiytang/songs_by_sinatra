@@ -3,11 +3,6 @@
 require 'dm-core'
 require 'dm-migrations'
 
-# connect to the database, creates a file development.db, that store all database info.
-configure :development do
-	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
-end
-
 class Song
 	include DataMapper::Resource  #forgot to capialise the 'm' in mapper
 	property :id, 		     Serial

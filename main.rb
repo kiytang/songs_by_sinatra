@@ -13,6 +13,15 @@ configure do
 	set :password, 'sinatra'
 end
 
+# connect to the database, creates a file development.db, that store all database info.
+configure :development do
+	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+end
+
+configure :production do
+	DataMapper.setup(:default, ENV['DATABASE_URL'])
+end
+
 # This is a simple route handler that uses the scss to 
 # process the styles view when
 # the styles.css file is requested
